@@ -5,25 +5,28 @@ jQuery(function ($) {
 
         $("#firstname").css("padding-right", "75%");
         $("#name").css("padding-left", "75%");
+        $(".bg-img").css("filter", "blur(30px)");
 
-        $(function () {
-            $({ blurRadius: 30 }).animate({ blurRadius: 0 }, {
-                duration: 500,
-                easing: 'swing', // or "linear"
-                // use jQuery UI or Easing plugin for more options
+        setTimeout(function () {
+
+            $({ value: 30 }).animate({ value: 0 }, {
+                duration: 750,
+                easing: 'swing',
                 step: function () {
-                    console.log(this.blurRadius);
+                    console.log(this.value);
                     $('.bg-img').css({
-                        "-webkit-filter": "blur(" + this.blurRadius + "px)",
-                        "filter": "blur(" + this.blurRadius + "px)"
+                        "filter": "blur(" + this.value + "px)"
                     });
                 }
             });
-        });
+            
+            $('.title h1').animate({
+                'padding': '0 25%'
+            }, 1250);
 
-        $('.title h1').animate({
-            'padding': '0 25%'
-        }, "slow");
+        }, 500);
+
+        
     });
 
 });
