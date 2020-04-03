@@ -1,5 +1,9 @@
 jQuery(function ($) {
 
+    /*$(document).ready(function () {
+        $(this).scrollTop(0);
+    });*/
+
     $(window).on("load", function () {
 
         //attend pour que la page soit bien chargé
@@ -47,6 +51,7 @@ jQuery(function ($) {
             });
 
         }, 1750);
+
         
     });
 
