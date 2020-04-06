@@ -16,6 +16,7 @@
 :root {
     --couleurSecondaire: #3a41e4;
     --couleurPrincipale : #39403F;
+    --couleurHeaderFooter : rgb(214,214,214);
     --font-grand-titre : "VarelaRound-regular";
     --font-titre : "maxwell-regular";
     --font-body: "Quicksand";
@@ -23,6 +24,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-y: hidden;
 }
 body {
    font-family: var(--font-body);
@@ -33,6 +35,7 @@ header {
 
 h2 {
     font-size: 2em;
+    margin-bottom: 1em;
     font-family: var(--font-grand-titre);
 }
 h3 {
@@ -46,15 +49,13 @@ main {
 }
 section {
     padding: 5em;
-    width: 100%;
+}
+footer {
+    padding-top: 2em;
 }
 
 #profil, #projet, #projet-un, #projet-deux, #projet-trois, #parcours  {
     display: flex;
-}
-
-#projet-un, #projet-deux, #projet-trois {
-    align-items: center;
 }
 
 a, a:hover {
@@ -99,7 +100,7 @@ a, a:hover {
 
 
 #profil {
-    background-color: rgb(214, 214, 214);
+    background-color: var(--couleurHeaderFooter);
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
@@ -116,16 +117,14 @@ a, a:hover {
     background-size: 105%;
     background-position-x: 100%;
 
-    border: 3px #fff solid;
+    border: 3px white solid;
     box-shadow: 3px 4px 5px var(--couleurSecondaire);
     transition: box-shadow 0.33s ease;
 }
 #profil-img:hover {
     box-shadow: 2px 2px 15px var(--couleurSecondaire);
 }
-#profil-text h2 {
-    margin-bottom: 0.75em;
-}
+
 #profil-text p {
     margin: 0;
     font-size: 1.35em;
@@ -157,11 +156,12 @@ a, a:hover {
 #projet-un, #projet-deux, #projet-trois {
     flex-flow: column wrap;
     flex-basis: 20%;
-    margin: 1em 4em;
+    margin: 1em 3em;
     padding: 1em;
     transition: 0.5s ease;
     border: 1px var(--couleurSecondaire) solid;
     background-color: white;
+    align-items: center;
 }
 #projet-un:hover, #projet-deux:hover, #projet-trois:hover {
     box-shadow: 5px 5px 5px var(--couleurSecondaire);
@@ -176,23 +176,23 @@ em, #parcours h4 {
 }
 #parcours {
     justify-content: center;
+    flex-flow: row wrap;
+    
 }
 #parcours strong, #parcours h4 {
     color: var(--couleurSecondaire);
 }
 #formation, #exp-pro {
-    flex-basis: 42%;
-}
-#parcours h2 {
-    margin-bottom: 1em;
+    flex-basis: 37%;
+    margin: 0 1em;
 }
 
-#parcours a {
+#parcours a, footer a {
     display: inline-block;
     color: var(--couleurSecondaire);
     transition: 0.5s ease;
 }
-#parcours a:after {
+#parcours a:after, footer a:after {
     display: block;
     content: '';
     width: 0px;
@@ -200,7 +200,7 @@ em, #parcours h4 {
     background: var(--couleurSecondaire);
     transition: 300ms;
 }
-#parcours a:hover:after {
+#parcours a:hover:after, footer a:hover:after {
     width: 100%;
 }
 #formation div, #exp-pro div {
@@ -212,14 +212,26 @@ hr {
 #dut::before {
     content: "2019 - En cours";
 }
-
 #bac::before {
     content: "2018 - 2019";
 }
 #mission::before {
     content: "2019";
 }
-
 #stage::before {
     content: "2016";
+}
+
+footer {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background-color: var(--couleurHeaderFooter);
+}
+footer img {
+    margin-right: 10px;
+}
+
+footer hr {
+    width: 100%;
 }

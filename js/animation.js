@@ -4,6 +4,7 @@ jQuery(function ($) {
         $(this).scrollTop(0);
     });*/
 
+
     $(window).on("load", function () {
 
         //attend pour que la page soit bien chargé
@@ -13,7 +14,8 @@ jQuery(function ($) {
                 duration: 750,
                 step: function () {
                     $("#bg-img, #title h1").css({
-                        "filter": "blur(" + this.value + "px)"
+                        "filter": "blur(" + this.value + "px)",
+                        "-moz-filter": "blur(" + this.value + "px)"
                     });
                     $("#title h1").css({
                         "opacity": (30 - this.value) / 30
@@ -28,7 +30,22 @@ jQuery(function ($) {
         }, 500);
   
         //attend la fin de l'animation du début 
-        setTimeout(function () {   
+        setTimeout(function () { 
+            
+            //affiche le titre au cas où l'animation aurait ratée
+            $("#bg-img, #title h1").css({
+                "filter": "blur(" + 0 + "px)"
+            });
+            $("#title h1").css({
+                "opacity": 1
+            });
+
+            $('#title h1').css({
+                'padding': '0 25%'
+            });
+
+            $("html").css({'overflow-y': 'visible'});
+
             $("#title").mouseenter(function () {
                 $('#slide-top').stop(true, false)
                 $('#slide-top').animate({
