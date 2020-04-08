@@ -23,16 +23,20 @@
 }
 
 html {
+    overflow-y: auto;
+}
+html {
     scroll-behavior: smooth;
-    overflow-y: hidden;
 }
 body {
    font-family: var(--font-body);
 }
 header {
+    background: url(../images/bg.jpg) no-repeat;
+    background-position: top;
+    filter: blur(30px);
     height: 100vh;
-}
-
+} 
 h2 {
     font-size: 2em;
     margin-bottom: 1em;
@@ -54,25 +58,73 @@ footer {
     padding-top: 2em;
 }
 
-#profil, #projet, #projet-un, #projet-deux, #projet-trois, #parcours  {
+a, a:hover {
+    text-decoration: none;
+    color: unset;
+}
+
+
+
+.navbar-nav, .navbar {
+    display:flex;
+}
+.navbar {
+    z-index: 999;
+    font-weight: bold;
+    border-bottom: 1px solid var(--couleurSecondaire);
+    box-shadow: 1px 1px 10px var(--couleurSecondaire);
+    padding: 0 1em;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    height: 3em;
+    width: 100%;
+    justify-content: space-between;
+}
+.nav-item {
+    transition: 0.5s ease;
+    border-radius: 5px;
+    margin: 0.5em;
+}
+.nav-item:hover {
+    background-color: var(--couleurSecondaire);
+}
+.nav-item a {
+    color: var(--couleurPrincipale);
+}
+.nav-item a:hover {
+    color: white;
+}
+
+#profil, #projet, #projet-un, #projet-deux, #projet-trois, .ligne {
     display: flex;
 }
 
-a, a:hover {
-    text-decoration: none;
+#arrow a span {
+  position: absolute;
+  top: 45%;
+  left: calc(50% - 24px);
+  width: 46px;
+  height: 46px;
+  border: 3px solid var(--couleurPrincipale);
+  border-radius: 100%;
+  transition: 300ms ease;
 }
-#title a:hover, #title a {
-    color: var(--couleurPrincipale);
+#arrow a span:hover {
+    padding-top: 0.5em;
 }
-#bg-img {
-    background: url(../images/bg.jpg) no-repeat;
-    background-position: top;
-    position: absolute;
-    top: 0;
-    width : 100%;
-    height: 100%;
-    filter: blur(30px);
-} 
+
+#arrow a span::after {
+  position: absolute;
+  content: '';
+  width: 16px;
+  height: 16px;
+  margin: 10px 0 0 12px;
+  border-left: 3px solid var(--couleurPrincipale);
+  border-bottom: 3px solid var(--couleurPrincipale);
+  transform: rotate(-45deg);
+}
+
 #title {
     position: relative;
     top: 30vh;
@@ -82,11 +134,12 @@ a, a:hover {
 }
 
 #title h1 {
-    /*font-size: 4.5em;*/
     width: 100%;    
     margin: 0;
     opacity: 0;
     font-family: var(--font-grand-titre);
+    color: var(--couleurPrincipale);
+    opacity: 0.5;
 }
 #slide-top {
     padding-right: 50%;
@@ -111,15 +164,16 @@ a, a:hover {
     padding: 0;
     width: 280px;
     height: 280px;
-    background-image: url(../images/profil.min.jpg);
     border-radius: 50%;
-    transform: rotate(-10deg);
-    background-size: 105%;
-    background-position-x: 100%;
-
+    transform: rotate(-12deg);
+    overflow: hidden;
     border: 3px white solid;
     box-shadow: 3px 4px 5px var(--couleurSecondaire);
     transition: box-shadow 0.33s ease;
+}
+#profil img {
+    transform: scale(1.05);
+    padding-right: 0.7em;
 }
 #profil-img:hover {
     box-shadow: 2px 2px 15px var(--couleurSecondaire);
@@ -130,19 +184,18 @@ a, a:hover {
     font-size: 1.35em;
 }
 
-#creation {
+#creation, #parcours {
     text-align: center;
 }
 
 #projet {
     flex-flow: row wrap;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: center;
     margin-top: 4em;
 }
 #projet a, #projet a:hover {
     color: var(--couleurPrincipale);
-    text-overflow: clip;
 }
 #projet img {
     width: 24em;
@@ -161,12 +214,11 @@ a, a:hover {
     transition: 0.5s ease;
     border: 1px var(--couleurSecondaire) solid;
     background-color: white;
-    align-items: center;
 }
 #projet-un:hover, #projet-deux:hover, #projet-trois:hover {
     box-shadow: 5px 5px 5px var(--couleurSecondaire);
     transform: scale(1.2);
-    z-index: 999;
+    z-index: 1;
 }
 em {
     color: var(--couleurSecondaire);
@@ -174,35 +226,40 @@ em {
 em, #parcours h4 {
      font-weight: bold;
 }
-#parcours {
-    justify-content: center;
+.ligne {
     flex-flow: row wrap;
-    
+    align-items: stretch;
+    justify-content: center; 
 }
 #parcours strong, #parcours h4 {
     color: var(--couleurSecondaire);
 }
 #formation, #exp-pro {
-    flex-basis: 37%;
-    margin: 0 1em;
+    text-align: left;
+    flex-basis: auto;
+    margin: 0 3em;
+    padding: 1em;
+}
+#formation h2, #exp-pro h2 {
+    width: 15em;
 }
 
-#parcours a, footer a {
+#parcours a, #parcours a:hover, footer a, footer a:hover{
     display: inline-block;
     color: var(--couleurSecondaire);
-    transition: 0.5s ease;
 }
-#parcours a:after, footer a:after {
+#parcours a:after, footer a:after{
     display: block;
     content: '';
-    width: 0px;
+    width: 0;
     height: 1px;
     background: var(--couleurSecondaire);
     transition: 300ms;
 }
-#parcours a:hover:after, footer a:hover:after {
+#parcours a:hover:after, footer a:hover:after{
     width: 100%;
 }
+
 #formation div, #exp-pro div {
     margin: 3em 0;
 }
@@ -227,6 +284,15 @@ footer {
     flex-flow: column nowrap;
     align-items: center;
     background-color: var(--couleurHeaderFooter);
+}
+footer div {
+    width: 11.5em;
+}
+
+footer  #mail {
+    width: 10.25em;
+    overflow: hidden;
+    white-space: nowrap;
 }
 footer img {
     margin-right: 10px;
