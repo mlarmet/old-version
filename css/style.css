@@ -51,16 +51,16 @@ main {
     height: 100vh;
 }
 section {
-    padding: 5em;
+    padding: 4em;
 }
-#creation {
-    padding: 5em 0;
+#projets, #competences {
+    padding: 4em 0;
 }
 footer {
     padding-top: 2em;
 }
 
-#profil, #projet, #projet-un, #projet-deux, #projet-trois, #parcours-ligne {
+#profil, #projets-ligne, #parcours, #competences-ligne {
     display: flex;
 }
 
@@ -103,9 +103,10 @@ a, a:hover {
 /*-----------------------NAVIGATION----------------------------*/
 .navbar-nav, .navbar {
     display:flex;
+    flex-flow: row nowrap;
 }
 .navbar {
-    z-index: 999;
+    z-index: 998;
     font-weight: bold;
     border-bottom: 1px solid var(--couleurSecondaire);
     box-shadow: 1px 1px 10px var(--couleurSecondaire);
@@ -121,23 +122,26 @@ a, a:hover {
     transition: 0.5s ease;
     border-radius: 5px;
     margin: 0.5em;
+    padding: 0 0.5em;
 }
 .nav-item:hover {
     background-color: var(--couleurSecondaire);
 }
 .nav-item a {
+    transition: 0.5s ease;
     color: var(--couleurPrincipale);
 }
 .nav-item a:hover {
+    
     color: white;
 }
 #cv {
     color: var(--couleurSecondaire);
 }
+#hamburger-button {
+    display: none;
+}
 /*-------------------------------------------------------------*/
-
-
-
 
 /*-----------------------HEADER----------------------------------*/
 #arrow {
@@ -146,10 +150,10 @@ a, a:hover {
 }
 #arrow a span {
     position: absolute;
-    width: 46px;
+    width: 40px;
     top: 32vh;  
-    left: calc(50% - 24px);
-    height: 46px;
+    left: calc(50% - 20px);
+    height: 40px;
     border: 3px solid var(--couleurPrincipale);
     border-radius: 100%;
     transition: 300ms ease;
@@ -160,9 +164,9 @@ a, a:hover {
 #arrow a span::after {
     position: absolute;
     content: '';
-    width: 16px;
-    height: 16px;
-    margin: 10px 0 0 12px;
+    width: 14px;
+    height: 14px;
+    margin: 8px 0 0 10px;
     border-left: 3px solid var(--couleurPrincipale);
     border-bottom: 3px solid var(--couleurPrincipale);
     transform: rotate(-45deg);
@@ -205,14 +209,14 @@ a, a:hover {
     margin-bottom: 3em;
     margin-right: 2em;
     padding: 0;
-    min-width: 280px;
+    width: 280px;
     height: 280px;
     border-radius: 100%;
     transform: rotate(-12deg);
     overflow: hidden;
     border: 3px white solid;
     box-shadow: 3px 4px 5px var(--couleurSecondaire);
-    transition: box-shadow 0.33s ease;
+    transition: box-shadow 300ms ease;
 }
 #profil-img img {
     transform: scale(1.05);
@@ -223,56 +227,51 @@ a, a:hover {
 }
 #profil-text p {
     margin: 0;
-    font-size: 1.35em;
+    font-size: 1.25em;
+    text-align: left;
 }
 /*-------------------------------------------------------------*/
 
-
-
-/*--------------------CREATION---------------------------------*/
-#creation, #parcours {
-    text-align: center;
-}
-#projet, #parcours-ligne {
+#projets-ligne, #parcours, #competences-ligne {
     flex-flow: row wrap;
     align-items: stretch;
     justify-content: center;
 }
-#projet {
-    margin-top: 4em;
+
+#projets, #parcours, #competences {
+    text-align: center;
+}
+
+/*--------------------CREATION---------------------------------*/
+
+#projets-ligne {
     transition: 0.5s ease;
 }
-.hr-color{
-    background-color: var(--couleurSecondaire);
-    border: 0 none;
-    width: 3em;
-    height: 4px;
+#projets-ligne h3 {
+    margin-bottom: 1em;
 }
-#projet h3 {
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-#projet a, #projet a:hover {
+#projets-ligne a, #projets-ligne a:hover {
     color: var(--couleurPrincipale);
 }
-#projet img {
-   width: 24em;
+#projets-ligne img {
+    width: 24em;
     margin-bottom: 2em;
 }
-#projet ul li{
+#projets-ligne ul li{
     text-align: left;
     padding: 3px 0;
 }
-#projet-un, #projet-deux, #projet-trois {
+#projets-un, #projets-deux, #projets-trois {
+    display: flex;
     flex-flow: column wrap;
     flex-basis: 20%;
-    margin: 1em 3em;
+    margin: 2em;
     padding: 1em;
     transition: 0.5s ease;
     border: 1px var(--couleurSecondaire) solid;
     background-color: white;
 }
-#projet-un:hover, #projet-deux:hover, #projet-trois:hover {
+#projets-un:hover, #projets-deux:hover, #projets-trois:hover {
     box-shadow: 5px 5px 5px var(--couleurSecondaire);
     transform: scale(1.2);
     z-index: 1;
@@ -282,16 +281,16 @@ a, a:hover {
 
 
 /*------------------------PARCOURS-----------------------------*/
-
-#parcours-ligne {
+#parcours {
     justify-content: space-evenly;
 }
-#parcours-ligne strong, #parcours-ligne h4 {
+#parcours strong, #parcours h4 {
     color: var(--couleurSecondaire);
 }
 
-#parcours-ligne h2 {
-   width: 15em;
+#parcours h2 {
+    overflow: hidden;
+    white-space: nowrap;
 }
 #formation, #exp-pro {
     text-align: left;
@@ -308,7 +307,7 @@ a, a:hover {
     margin-bottom: 2em;
 }
 #formation div, #exp-pro div {
-    margin: 3em 0;
+    margin: 2em 0;
 }
 #dut::before {
     content: "2019 - En cours";
@@ -326,21 +325,67 @@ a, a:hover {
 
 
 
-/*-------------------------FOOTER------------------------------*/
+/*--------------------------competencesS------------------------*/
+.circle {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 7em;
+    height: 7em;
+    border-radius: 50%;
+    background-color: var(--couleurSecondaire);
+    color: white;
+}
 
+.hr-color{
+    background-color: var(--couleurSecondaire);
+    border: 0 none;
+    width: 3em;
+    height: 4px;
+}
+#competences-ligne {
+    flex-flow: row wrap;
+    justify-items: flex-start;
+    justify-content: center;
+}
+
+#competences-un, #competences-deux, #competences-trois {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    flex-basis: 25%;
+    margin: 2em;
+    
+}
+#competences-un p, #competences-deux p, #competences-trois p {
+    margin-top: 1em;
+}
+#competences-un p:not(.description), 
+#competences-deux p:not(.description), 
+#competences-trois p:not(.description) {
+    text-align: justify;
+    min-width: 15em;
+}
+/*-------------------------------------------------------------*/
+
+
+
+/*-------------------------FOOTER------------------------------*/
 footer {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     background-color: var(--couleurHeaderFooter);
 }
-footer div {
+footer div:not(#mail) {
    width: 11.5em;
 }
 #mail {
     width: 10.25em;
     overflow: hidden;
     white-space: nowrap;
+    margin-bottom: 1em;
 }
 footer img {
     margin-right: 10px;
@@ -353,7 +398,8 @@ footer hr {
 }
 /*-------------------------------------------------------------*/
 
-@media (min-width: 1281px) {
+/*tous plus grand qu'une tablette*/
+@media screen and (min-width: 1081px) {
   
     #formation, #exp-pro {
        flex-basis: 33%;
@@ -364,20 +410,14 @@ footer hr {
         display: none;
     }
   
-}
-
-/*all device greater than tablet*/
-@media screen and (min-width: 1081px) and (max-width: 1280px){
-
-    #slide-top, #slide-bottom {
+    #title h1 {
         overflow: hidden;
         white-space: nowrap;
     }
-
-    
     
 }
 
+/*tablette paysage*/
 @media (min-width: 768px) and (max-width: 1080px) and (orientation: landscape) {
 
     #profil-img {
@@ -389,10 +429,24 @@ footer hr {
 
 }
 
-/*too small for nav and #parcours*/
-@media screen and (max-width: 699px){   
-    
-    footer div{
+/*tablette paysage*/
+@media (min-width: 768px) and (max-width: 1080px) and (orientation: landscape) {
+
+    #profil-img {
+        margin-bottom: 0em;
+    }
+    #title h1 {
+        padding: 0;
+    }
+
+}
+
+
+/*réduction du menu + affichage email en entier*/
+/*tablette*/
+@media screen and (max-width: 811px){   
+
+    footer div:not(#mail){
         display: flex;
         flex-flow: row wrap;
         align-content: center;
@@ -401,27 +455,103 @@ footer hr {
         width: 100%;
 
     }
-    footer div p {
-        margin: 0 1em;
+    footer div p, #mail {
+        margin: 0.5em 1em;
+    }
+    #mail {
+        display: flex;
+        flex-wrap: nowrap;
+        width: auto;
+        align-items: center;
+        white-space: normal;
+    }
+    #mail img {
+        min-width: 32px;
+        min-height: 32px;
+        flex-shrink: 0;
     }
 
-    #mail {
-       width: 22em;
+    .navbar {
+        position: fixed;
+        top:0;
+        height: 100%;
+        width: 40%;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 0;
+        padding-top: 3em;
+    }
+    .navbar-nav {
+        display: flex;
+        flex-flow: column nowrap;
+        padding-left: 1em;
+        width: 100%;
+    }
+    .nav-item {
+        width: min-content;
+    }
+    .navbar > a {
+        padding-left: 1.5em;
+        margin: 0.5em;
+    }
+    .nav-item {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    #hamburger-button {
+        position: fixed;
+        display: block;
+        /*top: 5px;
+        left: 10px;*/
+        padding: 0.25em 0.66em 0.33em 0.5em;
+        border-right: 1px solid var(--couleurPrincipale);
+        border-bottom: 1px solid var(--couleurPrincipale);
+        border-bottom-right-radius: 50%;
+        z-index: 999;
+        opacity: 0;
+        cursor: pointer;
+        background-color: white;
+    }
+    .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: var(--couleurPrincipale);
+        border-radius: 20px;
+        margin: 6px 0;
+        transition: 300ms;
+    }
+
+    .change .bar1 { transform: rotate(-45deg) translate(-9px, 6px); }
+    .change .bar2 { opacity: 0; }
+    .change .bar3 { transform: rotate(45deg) translate(-8px, -8px); }
+
+    #slide-top {
+        font-size: 3em;
     }
 
 }
 
 
-/*Mobile paysage*/
-@media (min-width: 561px) and (max-width: 767px) {
+/*mobile paysage*/
+@media (min-width: 561px) and (max-width: 767px) and (orientation: landscape){
 
     #arrow a span {
         top: 22vh;
         left: calc(50% - 15px);
         width: 30px;
         height: 30px;
+        border: 2px solid var(--couleurPrincipale);
     }
-
+    #arrow a span::after {
+        width: 10.5px;
+        height: 10.5px;
+        margin: 6px 0 0 7px;
+        border-bottom: 2px solid var(--couleurPrincipale);
+        border-left: 2px solid var(--couleurPrincipale);
+    }
     #title{
         top: 20vh;
     }
@@ -437,34 +567,118 @@ footer hr {
         font-size: 1.25em;
     }
 
+    header {
+        background-position-y: -22.5em;
+    }
+
+    .navbar {
+        width: 40%;
+        justify-content: space-around;
+    }
+
+    .navbar-nav {
+        height: 70%;
+        flex-flow: row wrap;
+        align-content: center;
+    }  
+    #profil-img {
+        float: left;
+        width: 175px;
+        height: 175px;
+        margin-right: 0;     
+    }
+    #profil-img img {
+        padding-right: 7em;
+        transform: scale(1.1);
+    }
+}
+
+/*--------------------compétences wrap------------------------*/
+@media screen and (max-width: 910px){
+    #competences-un, #competences-deux, #competences-trois {
+        flex-basis: 40%;
+        margin: 1em;
+    }
+}
+@media screen and (max-width: 638px){
+    #competences-un, #competences-deux, #competences-trois {
+        flex-basis: 75%;
+        margin: 1em 0;
+    }
+}
+/*-------------------------------------------------------------*/
+
+/*mobile portrait*/
+@media screen and (max-width: 560px){
+
+    
+    section {
+        padding: 3em 0;
+    }
+    header {
+        background-position-y: -10em;
+    }
+
+    .navbar {
+        width: 55%;
+    }
+
+    #arrow a span {
+        left: calc(50% - 15px);
+        width: 30px;
+        height: 30px;
+        border: 2px solid var(--couleurPrincipale);
+    }
     #arrow a span::after {
         width: 10.5px;
         height: 10.5px;
         margin: 6px 0 0 7px;
+        border-bottom: 2px solid var(--couleurPrincipale);
+        border-left: 2px solid var(--couleurPrincipale);
     }
-    header {
-        height: 125vh;
-        background-position-y: -10em;
+
+    #slide-top {
+        font-size: 2em;
     }
-  
-}
-
-
-/*Mobile portrait*/
-@media screen and (max-width: 560px){
-
-    #arrow a span {
-    top: 20vh;
+    #slide-bottom {
+        font-size: 1em;
     }
-    #title {
-        top: 18vh;
-    } 
 
-    body {
-        zoom:0.5;  
+    #profil {
+        display: block;
     }
-    header {
-        height: 186vh;
-        background-size: cover;
+    #profil-img {
+        float: left;
+        width: 140px;
+        height: 140px;
+        margin: 1em;
+        margin-top: 0;
+        margin-right: 1.5em;
+    }
+    #profil-img img {        
+        padding-right: 9em;
+        transform: scale(1.05);
+    }
+    #profil-text {
+        font-size: 0.75em;
+    }
+    #projets-ligne img {
+        width: 100%;
+    }
+    #projets-un, #projets-deux, #projets-trois {
+        flex-basis: 100%;
+        margin: 1em;
+    }
+    #projets-un:hover, #projets-deux:hover, #projets-trois:hover {
+        transform: none;
+        box-shadow: 0 0 0;
+    }
+
+    #parcours h2 {
+        overflow: visible;
+        white-space: normal;
+    }
+    #formation, #exp-pro {
+        margin: 1em;
     }
 }  
