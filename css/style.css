@@ -45,7 +45,7 @@ h3 {
     font-family: var(--font-titre);
     font-weight: bold;
     color: var(--couleurSecondaire);
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
 }
 main {
     height: 100vh;
@@ -53,16 +53,17 @@ main {
 section {
     padding: 4em;
 }
-#projets, #competences {
+#competences {
     padding: 4em 0;
+}
+#projets {
+    padding: 4em 2em;
 }
 footer {
     padding-top: 2em;
 }
 
-#profil, #projets-ligne, #parcours, #competences-ligne {
-    display: flex;
-}
+
 
 em {
     color: var(--couleurSecondaire);
@@ -174,7 +175,7 @@ a, a:hover {
 #title {
     position: relative;
     top: 30vh;
-   width: 100%;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
 }
@@ -198,16 +199,14 @@ a, a:hover {
 
 /*-----------------------PROFIL--------------------------------*/
 #profil {
+    display: flex;
     background-color: var(--couleurHeaderFooter);
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
-    justify-content: space-evenly;
 }
 #profil-img {
     margin: 0;
-    margin-bottom: 3em;
-    margin-right: 2em;
     padding: 0;
     width: 280px;
     height: 280px;
@@ -228,27 +227,25 @@ a, a:hover {
 #profil-text p {
     margin: 0;
     font-size: 1.25em;
-    text-align: left;
+    text-align: justify;
 }
 /*-------------------------------------------------------------*/
 
-#projets-ligne, #parcours, #competences-ligne {
+
+
+/*--------------------CREATION---------------------------------*/
+#projets {
+    text-align: center;
+}
+#projets-ligne {
+    display: flex;
     flex-flow: row wrap;
     align-items: stretch;
     justify-content: center;
-}
-
-#projets, #parcours, #competences {
-    text-align: center;
-}
-
-/*--------------------CREATION---------------------------------*/
-
-#projets-ligne {
     transition: 0.5s ease;
 }
-#projets-ligne h3 {
-    margin-bottom: 1em;
+#projets h2 {
+    margin-bottom: 2em;
 }
 #projets-ligne a, #projets-ligne a:hover {
     color: var(--couleurPrincipale);
@@ -261,17 +258,21 @@ a, a:hover {
     text-align: left;
     padding: 3px 0;
 }
-#projets-un, #projets-deux, #projets-trois {
+#projets-un, #projets-deux, #projets-trois, #projets-quatre {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     flex-basis: 20%;
-    margin: 2em;
+    margin: 1em;
     padding: 1em;
     transition: 0.5s ease;
     border: 1px var(--couleurSecondaire) solid;
     background-color: white;
 }
-#projets-un:hover, #projets-deux:hover, #projets-trois:hover {
+#projets-deux img{
+    margin-bottom: 0;
+    margin-top: 2em;
+}
+#projets-un:hover, #projets-deux:hover, #projets-trois:hover, #projets-quatre:hover {
     box-shadow: 5px 5px 5px var(--couleurSecondaire);
     transform: scale(1.2);
     z-index: 1;
@@ -282,7 +283,11 @@ a, a:hover {
 
 /*------------------------PARCOURS-----------------------------*/
 #parcours {
+    display: flex;
     justify-content: space-evenly;
+    flex-flow: row wrap;
+    align-items: stretch;
+    text-align: center;
 }
 #parcours strong, #parcours h4 {
     color: var(--couleurSecondaire);
@@ -337,19 +342,21 @@ a, a:hover {
     background-color: var(--couleurSecondaire);
     color: white;
 }
-
 .hr-color{
     background-color: var(--couleurSecondaire);
     border: 0 none;
     width: 3em;
     height: 4px;
 }
-#competences-ligne {
-    flex-flow: row wrap;
-    justify-items: flex-start;
-    justify-content: center;
+#competences {
+    text-align: center;
 }
-
+#competences-ligne {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: stretch;
+}
 #competences-un, #competences-deux, #competences-trois {
     display: flex;
     flex-flow: column wrap;
@@ -417,35 +424,68 @@ footer hr {
     
 }
 
-/*tablette paysage*/
-@media (min-width: 768px) and (max-width: 1080px) and (orientation: landscape) {
+/*mobile paysage*/
+@media screen and (min-width: 561px) and (max-width: 767px){
 
+    #arrow a span {
+        top: 22vh;
+        left: calc(50% - 15px);
+        width: 30px;
+        height: 30px;
+        border: 2px solid var(--couleurPrincipale);
+    }
+    #arrow a span::after {
+        width: 10.5px;
+        height: 10.5px;
+        margin: 6px 0 0 7px;
+        border-bottom: 2px solid var(--couleurPrincipale);
+        border-left: 2px solid var(--couleurPrincipale);
+    }
+    #title{
+        top: 20vh;
+    }
+
+    #slide-top {
+        font-size: 2.5em;
+    }
+    #slide-bottom {
+        font-size: 1.25em;
+    }
+
+    header {
+        background-position-y: -12.5em;
+    }
+
+    .navbar {
+        width: 40%;
+        justify-content: space-around;
+        padding-top: 5%;
+    }
+
+    .navbar-nav {
+        height: 70%;
+        flex-flow: row wrap;
+        align-content: center;
+    }  
     #profil-img {
-        margin-bottom: 0em;
+        float: left;
+        width: 175px;
+        height: 175px;
+        margin-right: 0;     
     }
-    #title h1 {
-        padding: 0;
+    #profil-img img {
+        padding-right: 7em;
+        transform: scale(1.1);
     }
-
 }
-
-/*tablette paysage*/
-@media (min-width: 768px) and (max-width: 1080px) and (orientation: landscape) {
-
-    #profil-img {
-        margin-bottom: 0em;
-    }
-    #title h1 {
-        padding: 0;
-    }
-
-}
-
 
 /*réduction du menu + affichage email en entier*/
 /*tablette*/
 @media screen and (max-width: 811px){   
 
+    #slide-top {
+        font-size: 3em;
+    }
     footer div:not(#mail){
         display: flex;
         flex-flow: row wrap;
@@ -480,7 +520,7 @@ footer hr {
         justify-content: flex-start;
         align-items: flex-start;
         padding: 0;
-        padding-top: 3em;
+        padding-top: 12.5%;
     }
     .navbar-nav {
         display: flex;
@@ -491,6 +531,7 @@ footer hr {
     .nav-item {
         width: min-content;
     }
+    /*cv link*/
     .navbar > a {
         padding-left: 1.5em;
         margin: 0.5em;
@@ -500,20 +541,22 @@ footer hr {
         padding-right: 0.5em;
         overflow: hidden;
         white-space: nowrap;
-    }
+    }    
+
     #hamburger-button {
         position: fixed;
         display: block;
         /*top: 5px;
         left: 10px;*/
         padding: 0.25em 0.66em 0.33em 0.5em;
-        border-right: 1px solid var(--couleurPrincipale);
-        border-bottom: 1px solid var(--couleurPrincipale);
+        border-right: 0px solid var(--couleurPrincipale);
+        border-bottom: 0px solid var(--couleurPrincipale);
         border-bottom-right-radius: 50%;
+        opacity: 0.5;
         z-index: 999;
         opacity: 0;
         cursor: pointer;
-        background-color: white;
+        
     }
     .bar1, .bar2, .bar3 {
         width: 35px;
@@ -527,71 +570,8 @@ footer hr {
     .change .bar1 { transform: rotate(-45deg) translate(-9px, 6px); }
     .change .bar2 { opacity: 0; }
     .change .bar3 { transform: rotate(45deg) translate(-8px, -8px); }
-
-    #slide-top {
-        font-size: 3em;
-    }
-
 }
 
-
-/*mobile paysage*/
-@media (min-width: 561px) and (max-width: 767px) and (orientation: landscape){
-
-    #arrow a span {
-        top: 22vh;
-        left: calc(50% - 15px);
-        width: 30px;
-        height: 30px;
-        border: 2px solid var(--couleurPrincipale);
-    }
-    #arrow a span::after {
-        width: 10.5px;
-        height: 10.5px;
-        margin: 6px 0 0 7px;
-        border-bottom: 2px solid var(--couleurPrincipale);
-        border-left: 2px solid var(--couleurPrincipale);
-    }
-    #title{
-        top: 20vh;
-    }
-
-    #title h1{
-        padding: 0;
-    }
-
-    #slide-top {
-        font-size: 2.5em;
-    }
-    #slide-bottom {
-        font-size: 1.25em;
-    }
-
-    header {
-        background-position-y: -22.5em;
-    }
-
-    .navbar {
-        width: 40%;
-        justify-content: space-around;
-    }
-
-    .navbar-nav {
-        height: 70%;
-        flex-flow: row wrap;
-        align-content: center;
-    }  
-    #profil-img {
-        float: left;
-        width: 175px;
-        height: 175px;
-        margin-right: 0;     
-    }
-    #profil-img img {
-        padding-right: 7em;
-        transform: scale(1.1);
-    }
-}
 
 /*--------------------compétences wrap------------------------*/
 @media screen and (max-width: 910px){
@@ -662,23 +642,29 @@ footer hr {
     #profil-text {
         font-size: 0.75em;
     }
+    #projets {
+        padding: 4em 0;
+    }
     #projets-ligne img {
         width: 100%;
     }
-    #projets-un, #projets-deux, #projets-trois {
+    #projets-un, #projets-deux, #projets-trois, #projets-quatre {
         flex-basis: 100%;
-        margin: 1em;
+        margin: 0.5em 1em;
     }
-    #projets-un:hover, #projets-deux:hover, #projets-trois:hover {
+    #projets-un:hover, #projets-deux:hover, #projets-trois:hover, #projets-quatre:hover {
         transform: none;
         box-shadow: 0 0 0;
     }
-
     #parcours h2 {
         overflow: visible;
         white-space: normal;
     }
     #formation, #exp-pro {
+        margin: 1em;
+    }
+    #competences-un, #competences-deux, #competences-trois {
+        flex-basis: 100%;
         margin: 1em;
     }
 }  

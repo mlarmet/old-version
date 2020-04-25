@@ -33,22 +33,24 @@ jQuery(function () {
         }
         else {
             $(".navbar").slideUp(0);
+            $("#navigation").fadeOut(0);
         }
         
     });
 
     
         
-        $(window).scroll(function (event) {
-            if (window.matchMedia("(min-width: 811px)").matches){
-                if (document.body.scrollTop > scrollLimit ||
-                    document.documentElement.scrollTop > scrollLimit) {
-                    $(".navbar").slideDown();
-                } else {
-                    $(".navbar").slideUp();
-                }
+    $(window).scroll(function (event) {
+        if (window.matchMedia("(min-width: 811px)").matches){
+            if (document.body.scrollTop > scrollLimit ||
+                document.documentElement.scrollTop > scrollLimit) {
+                $(".navbar").slideDown();
+            } else {
+                $(".navbar").slideUp();
             }
-        });
+        }
+        
+    });
     
 
 
@@ -80,13 +82,13 @@ jQuery(function () {
             $({ value: 30 }).animate({ value: 0 }, {
                 duration: 750,
                 step: function () {
-                    $("header, #title h1").css({
+                    $("header").css({
                         "filter": "blur(" + this.value + "px)",
                         "-moz-filter": "blur(" + this.value + "px)"
                     });
                     $("#title h1, #arrow, #hamburger-button").css({
                         "opacity": (30 - this.value) / 30
-                    });
+                    });        
                 }
             });
 
@@ -101,23 +103,14 @@ jQuery(function () {
 
 
         if (window.matchMedia("(max-width: 811px)").matches) {
-
-            $("#hamburger-button").click(function () {
+            
+            $("#hamburger-button, .nav-link").click(function () {
                 $("#hamburger-button").toggleClass("change");
                 if ($(".navbar").is(":visible")) {
                     $(".navbar").slideUp(300);
-                    $("#hamburger-button").css({
-                        'border-right-width': '1px',
-                        'border-bottom-width': '1px'
-                    });
                 }
                 else if ($(".navbar").is(":hidden")) {
                     $(".navbar").slideDown(300);
-                    $("#hamburger-button").css({
-                        'border-right-width': '0px',
-                        'border-bottom-width': '0px'
-                        
-                    });
                 }
             });
         }
@@ -179,7 +172,14 @@ jQuery(function () {
                 
             }
         
-        }      
+        }
+        else {
+            if ((window.matchMedia("(min-width: 561px)").matches) && (window.matchMedia("(max-width: 767px)").matches)) {
+                $("header").css({
+                    "background-position-y": "-22.5em"
+                });
+            }
+        }
         
 
     });
