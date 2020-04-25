@@ -260,7 +260,7 @@ a, a:hover {
     margin-bottom: 2em;
 }
 #projets-ligne ul li{
-    text-align: justify;
+    text-align: left;
     padding: 3px 0;
 }
 #projets-un, #projets-deux, #projets-trois, #projets-quatre, #projets-cinq {
