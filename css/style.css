@@ -249,21 +249,26 @@ a, a:hover {
 }
 #projets-ligne a, #projets-ligne a:hover {
     color: var(--couleurPrincipale);
+    padding: 0 2em;
+}
+#projets-ligne ul {
+    padding-left: 1em;
+    margin: 0;
 }
 #projets-ligne img {
     width: 24em;
     margin-bottom: 2em;
 }
 #projets-ligne ul li{
-    text-align: left;
+    text-align: justify;
     padding: 3px 0;
 }
-#projets-un, #projets-deux, #projets-trois, #projets-quatre {
+#projets-un, #projets-deux, #projets-trois, #projets-quatre, #projets-cinq {
     display: flex;
     flex-flow: column nowrap;
-    flex-basis: 20%;
+    flex-basis: 25%;
     margin: 1em;
-    padding: 1em;
+    padding: 2em 0;
     transition: 0.5s ease;
     border: 1px var(--couleurSecondaire) solid;
     background-color: white;
@@ -272,7 +277,7 @@ a, a:hover {
     margin-bottom: 0;
     margin-top: 2em;
 }
-#projets-un:hover, #projets-deux:hover, #projets-trois:hover, #projets-quatre:hover {
+#projets-un:hover, #projets-deux:hover, #projets-trois:hover, #projets-quatre:hover, #projets-cinq:hover {
     box-shadow: 5px 5px 5px var(--couleurSecondaire);
     transform: scale(1.2);
     z-index: 1;
@@ -648,11 +653,11 @@ footer hr {
     #projets-ligne img {
         width: 100%;
     }
-    #projets-un, #projets-deux, #projets-trois, #projets-quatre {
+    #projets-un, #projets-deux, #projets-trois, #projets-quatre, #projets-cinq {
         flex-basis: 100%;
         margin: 0.5em 1em;
     }
-    #projets-un:hover, #projets-deux:hover, #projets-trois:hover, #projets-quatre:hover {
+    #projets-un:hover, #projets-deux:hover, #projets-trois:hover, #projets-quatre:hover, #projets-cinq:hover {
         transform: none;
         box-shadow: 0 0 0;
     }
