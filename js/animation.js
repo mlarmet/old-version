@@ -74,7 +74,7 @@ jQuery(function () {
         });
 
         //scroll up refresh page
-        //$("html, body").animate({ scrollTop: 0 }, 0);
+        $("html, body").animate({ scrollTop: 0 }, 0);
 
 
         //attend pour que la page soit bien chargé
