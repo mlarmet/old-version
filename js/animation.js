@@ -75,7 +75,6 @@ jQuery(function () {
 
         //scroll up refresh page
         $("html, body").animate({ scrollTop: 0 }, 0);
-        $("html, body").css({ "overflow": "scroll" });
 
 
         //attend pour que la page soit bien chargé
