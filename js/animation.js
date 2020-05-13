@@ -55,24 +55,7 @@ jQuery(function () {
 
 
     $(window).on("load", function () {
-
-        w = $(document).width();
-
-        $(function () {
-
-            var $img = $("header img"),
-                totalImg = $img.length;
-            var waitImgDone = function () {
-                totalImg--;
-            };
-
-            $("header img").each(function () {
-                $(this)
-                    .load(waitImgDone)
-                    .error(waitImgDone);
-            });
-        });
-
+   
         //scroll up refresh page
         $("html, body").animate({ scrollTop: 0 }, 0);
 
