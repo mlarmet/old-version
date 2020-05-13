@@ -98,7 +98,7 @@ jQuery(function () {
             //affiche le titre au cas où l"animation aurait ratée
             $("header, #title h1").css({ "filter": "blur(" + 0 + "px)" });
             $("#title h1, #arrow, #hamburger-button").css({ "opacity": 1 });
-            $("html").css({ "overflow-y": "visible" });
+            $("html").css({ "overflow-y": "scroll" });
         }, 2005);
 
 
