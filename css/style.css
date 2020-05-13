@@ -24,6 +24,7 @@
 
 html {
     overflow-y: auto;
+    overflow: hidden;
     scroll-behavior: smooth;
 }
 
