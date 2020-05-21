@@ -1,10 +1,10 @@
-# Maxence LARMET
+# <p align="center">Maxence LARMET</p>
 
-<p align="center">
-  Ma page personnel décrivant mes projets, mes compétences 
+
+ Ma page personnel décrivant mes projets, mes compétences 
 
 [mlarmet.github.io](https://mlarmet.github.io)
-</p>
+
 
 
 - Rubrique :
