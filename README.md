@@ -1,7 +1,7 @@
 # <p align="center">Maxence LARMET</p>
 
 
-Page personnel décrivant mes projets, mes compétences 
+Site personnel décrivant mes projets, mes compétences réalisé en ***HTML5***, ***CSS3***, ***JQUERY*** et ***Bootstrap***
 
 [mlarmet.github.io](https://mlarmet.github.io)
 
