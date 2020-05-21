@@ -5,6 +5,8 @@ Site personnel décrivant mes projets, mes compétences réalisé en ***HTML5***
 
 [mlarmet.github.io](https://mlarmet.github.io)
 
+## Informations
+
 - Rubrique :
   - À propos
   - Mes projets
