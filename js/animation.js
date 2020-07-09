@@ -4,44 +4,41 @@ var isMobile = navigator.userAgent.toLowerCase().match(/mobile/i);
 
 var previousW = $(window).width();
 
-jQuery(function () {
-    
-    //alert($(window).width());
-    $(window).resize(function () {
+jQuery(function() {
+
+    $(window).resize(function() {
         w = $(window).width();
 
         //actualise effet mail
         if (previousW < 811 && w > 811 || previousW > 811 && w < 811) {
             location.reload();
             previousW = w;
-        } 
+        }
         //actualise pour l'effet de souris
         else if (previousW < 1080 && w > 1080 || previousW > 1080 && w < 1080) {
             location.reload();
             previousW = w;
         }
-        
+
 
     });
 
-    $(document).ready(function () {
-        if (window.matchMedia("(min-width: 811px)").matches){
-           if (document.body.scrollTop < scrollLimit ||
-            document.documentElement.scrollTop < scrollLimit) {
+    $(document).ready(function() {
+        if (window.matchMedia("(min-width: 811px)").matches) {
+            if (document.body.scrollTop < scrollLimit ||
+                document.documentElement.scrollTop < scrollLimit) {
                 $(".navbar").slideUp(0);
-            } 
-        }
-        else {
+            }
+        } else {
             $(".navbar").slideUp(0);
             $("#navigation").fadeOut(0);
         }
-        
+
     });
 
-    
-        
-    $(window).scroll(function (event) {
-        if (window.matchMedia("(min-width: 811px)").matches){
+
+    $(window).scroll(function(event) {
+        if (window.matchMedia("(min-width: 811px)").matches) {
             if (document.body.scrollTop > scrollLimit ||
                 document.documentElement.scrollTop > scrollLimit) {
                 $(".navbar").slideDown();
@@ -49,35 +46,33 @@ jQuery(function () {
                 $(".navbar").slideUp();
             }
         }
-        
+
     });
-    
 
+    $(window).on("load", function() {
 
-    $(window).on("load", function () {
-   
         //scroll up refresh page
         $("html, body").animate({ scrollTop: 0 }, 0);
 
 
         //attend pour que la page soit bien chargé
-        setTimeout(function () {
+        setTimeout(function() {
             $({ value: 30 }).animate({ value: 0 }, {
                 duration: 750,
-                step: function () {
+                step: function() {
                     $("header").css({
                         "filter": "blur(" + this.value + "px)",
                         "-moz-filter": "blur(" + this.value + "px)"
                     });
                     $("#title h1, #arrow, #hamburger-button").css({
                         "opacity": (30 - this.value) / 30
-                    });        
+                    });
                 }
             });
 
         }, 750);
 
-        setTimeout(function () {
+        setTimeout(function() {
             //affiche le titre au cas où l"animation aurait ratée
             $("header, #title h1").css({ "filter": "blur(" + 0 + "px)" });
             $("#title h1, #arrow, #hamburger-button").css({ "opacity": 1 });
@@ -86,22 +81,21 @@ jQuery(function () {
 
 
         if (window.matchMedia("(max-width: 811px)").matches) {
-            
-            $("#hamburger-button, .nav-link").click(function () {
+
+            $("#hamburger-button, .nav-link").click(function() {
                 $("#hamburger-button").toggleClass("change");
                 if ($(".navbar").is(":visible")) {
                     $(".navbar").slideUp(300);
-                }
-                else if ($(".navbar").is(":hidden")) {
+                } else if ($(".navbar").is(":hidden")) {
                     $(".navbar").slideDown(300);
                 }
             });
         }
 
-        if (!isMobile){
-            
+        if (!isMobile) {
+
             if (window.matchMedia("(min-width: 1080px)").matches) {
-                setTimeout(function () {
+                setTimeout(function() {
                     $("#slide-top").css({
                         "padding-right": "50%"
                     });
@@ -113,13 +107,13 @@ jQuery(function () {
                         "padding": "0 25%"
                     }, 1300);
                 }, 750);
-                
+
                 //attend la fin de l"animation du début 
-                setTimeout(function () {
+                setTimeout(function() {
                     $("#title h1").css({ "padding": "0 25%" });
 
                     //effet titre souris passe dessus
-                    $("#title h1").mouseenter(function () {
+                    $("#title h1").mouseenter(function() {
                         $("#slide-top").stop(true, false)
                         $("#slide-top").animate({
                             "padding-left": "21.875%"
@@ -129,42 +123,38 @@ jQuery(function () {
                         $("#slide-bottom").animate({
                             "padding-right": "21.875%"
                         }, 500);
-                    }).mouseleave(function () {
+                    }).mouseleave(function() {
                         $("#title h1").stop(true, false);
                         $("#title h1").animate({
                             "padding": "0 25%"
                         }, 500);
-                    }); 
-                }, 2005); 
+                    });
+                }, 2005);
             }
-            if (window.matchMedia("(min-width: 811px)").matches){
+            if (window.matchMedia("(min-width: 811px)").matches) {
                 //souris sur le mail (attention le "a" pas le "p")
-                $("#mail a").mouseenter(function () {
+                $("#mail a").mouseenter(function() {
                     $("#mail").stop(true, false);
                     $("#mail").animate({
                         "width": "22.1em"
                     }, 300);
 
-                }).mouseleave(function () {
+                }).mouseleave(function() {
                     $("#mail").stop(true, false);
                     $("#mail").animate({
                         "width": "10.25em"
                     }, 300);
                 });
 
-                
+
             }
-        
-        }
-        else {
+        } else {
             if ((window.matchMedia("(min-width: 561px)").matches) && (window.matchMedia("(max-width: 767px)").matches)) {
                 $("header").css({
                     "background-position-y": "-22.5em"
                 });
             }
         }
-        
-
     });
 
 });
