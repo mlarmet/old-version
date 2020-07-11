@@ -59,6 +59,7 @@
     </header>
 
     <main>
+
         <section id="profil">
             <div id="profil-img">
                 <img src="images/profil.min.jpg" alt="profil photo" title="Maxence LARMET" width="280px" />
@@ -76,85 +77,127 @@
 
             <h2>Mes projets</h2>
 
-            <div id="projets-ligne">
+            <div class="projets-container">
+                <div class="carousel slide" id="projects-carousel" data-ride="carousel">
 
-                <div id="projets-un">
-                    <a href="https://github.com/mlarmet/site-ppp" target="blank">
-                        <img src="images/robots-programmes.png" alt="site projet medecine" title="Robots programmés" width="24em" />
+                    <ol class="carousel-indicators">
+                        <li data-target="#projects-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#projects-carousel" data-slide-to="1"></li>
+                        <li data-target="#projects-carousel" data-slide-to="2"></li>
+                        <li data-target="#projects-carousel" data-slide-to="3"></li>
+                        <li data-target="#projects-carousel" data-slide-to="4"></li>
+                    </ol>
 
-                        <h3>Robots programmés</h3>
-                        <ul>
-                            <li>
-                                <div class="box"><em>Conception</em> et <em>réalisation</em> d'un <em>site web</em> sur le lien entre santé et informatique.<br />Projet encadré lors du 1<sup>er</sup> semestre du DUT Informatique.
-                                </div>
-                            </li>
-                            <li>Outils : HTML, CSS, Bootstrap</li>
-                            <li>Acquis : compétences web, travail en équipe</li>
-                        </ul>
+                    <!-- /.carousel-indicators -->
+
+                    <div class="carousel-inner" role="listbox">
+
+                        <div class="carousel-item active" id="projets-ligne">
+
+                            <div id="projets-un">
+                                <a href="https://github.com/mlarmet/site-ppp" target="blank">
+                                    <img src="images/robots-programmes.png" alt="site projet medecine" title="Robots programmés" width="24em" />
+
+                                    <h3>Robots programmés</h3>
+                                    <ul>
+                                        <li>
+                                            <div class="box"><em>Conception</em> et <em>réalisation</em> d'un <em>site web</em> sur le lien entre santé et informatique.<br />Projet encadré lors du 1<sup>er</sup> semestre du DUT Informatique.
+                                            </div>
+                                        </li>
+                                        <li>Outils : HTML, CSS, Bootstrap</li>
+                                        <li>Acquis : compétences web, travail en équipe</li>
+                                    </ul>
+                                </a>
+                            </div>
+
+                        </div>
+
+
+                        <div class="carousel-item">
+                            <div id="projets-deux">
+                                <a>
+                                    <img src="images/python_logo.png" alt="illustration projets python" title="Jeu en python" width="24em" />
+
+                                    <h3>Jeux en Python</h3>
+                                    <ul>
+                                        <li>
+                                            <div>Réalisation de plusieurs petits <em>jeux</em> en <em>python</em> (en mode texte) tel que : pendu, morpion
+                                            </div>
+                                        </li>
+                                        <li>Outils : Python (3.7) avec le logiciel Visual Studio Code</li>
+                                        <li>Acquis : persévérance, autonomie</li>
+                                    </ul>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div id="projets-trois">
+                                <a href="https://github.com/mlarmet/casse-brique" target="blank">
+                                    <img src="images/casse-brique.png" alt="illustration jeu casse brique" title="Casse brique" width="24em" />
+
+                                    <h3>Casse brique</h3>
+                                    <ul>
+                                        <li>
+                                            <div>Conception et réalisation d'un <em>jeu vidéo 2D</em> pour le projet de fin d'année de la spécialité ISN du Baccalauréat.</div>
+                                        </li>
+                                        <li>Outils : Python (3.6) avec le module pygame</li>
+                                        <li>Acquis : gestion du temps, travail en équipe</li>
+                                    </ul>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div id="projets-quatre">
+                                <a>
+                                    <img src="images/tictactoe.png" alt="illustration jeu tic tac toe" title="Tic Tac Toe" width="24em" />
+
+                                    <h3>Tic Tac Toe</h3>
+                                    <ul>
+                                        <li>
+                                            <div><em>Développement</em> d'une application <em> Android</em>. Jeu du tic tac toe.</div>
+                                        </li>
+                                        <li>Outils : Java avec le logiciel Android Studio, XML</li>
+                                        <li>Acquis : initiation à la création d'application, autonomie</li>
+                                    </ul>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div id="projets-cinq">
+                                <a>
+                                    <img src="images/jan_computer.png" alt="site jan computer" title="JAN Computer games" width="24em" />
+
+                                    <h3>JAN</h3>
+                                    <ul>
+                                        <li>
+                                            <div><em>Réalisation</em> d'un site web sur les jeux vidéos pour un projet d'anglais.</div>
+                                        </li>
+                                        <li>Outils : HTML, CSS, Bootstrap</li>
+                                        <li>Acquis : apprentissage de l'anglais, compétences web</li>
+                                    </ul>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.carousel-inner -->
+
+                    <a href="#projects-carousel" class="carousel-control-prev" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                        <span class="sr-only" aria-hidden="true">Prev</span>
                     </a>
+                    <a href="#projects-carousel" class="carousel-control-next" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                        <span class="sr-only" aria-hidden="true">Next</span>
+                    </a>
+
                 </div>
+                <!-- /.carousel -->
+            </div>
 
-                <div id="projets-deux">
-                    <a>
-                        <img src="images/python_logo.png" alt="illustration projets python" title="Jeu en python" width="24em" />
-
-                        <h3>Jeux en Python</h3>
-                        <ul>
-                            <li>
-                                <div>Réalisation de plusieurs petits <em>jeux</em> en <em>python</em> (en mode texte) tel que : pendu, morpion
-                                    <div>
-                            </li>
-                            <li>Outils : Python (3.7) avec le logiciel Visual Studio Code</li>
-                            <li>Acquis : persévérance, autonomie</li>
-                        </ul>
-                    </a>
-                    </div>
-
-                    <div id="projets-trois">
-                        <a href="https://github.com/mlarmet/casse-brique" target="blank">
-                            <img src="images/casse-brique.png" alt="illustration jeu casse brique" title="Casse brique" width="24em" />
-
-                            <h3>Casse brique</h3>
-                            <ul>
-                                <li>
-                                    <div>Conception et réalisation d'un <em>jeu vidéo 2D</em> pour le projet de fin d'année de la spécialité ISN du Baccalauréat.</div>
-                                </li>
-                                <li>Outils : Python (3.6) avec le module pygame</li>
-                                <li>Acquis : gestion du temps, travail en équipe</li>
-                            </ul>
-                        </a>
-                    </div>
-
-                    <div id="projets-quatre">
-                        <a>
-                            <img src="images/tictactoe.png" alt="illustration jeu tic tac toe" title="Tic Tac Toe" width="24em" />
-
-                            <h3>Tic Tac Toe</h3>
-                            <ul>
-                                <li>
-                                    <div><em>Développement</em> d'une application <em> Android</em>. Jeu du tic tac toe.</div>
-                                </li>
-                                <li>Outils : Java avec le logiciel Android Studio, XML</li>
-                                <li>Acquis : initiation à la création d'application, autonomie</li>
-                            </ul>
-                        </a>
-                    </div>
-
-                    <div id="projets-cinq">
-                        <a>
-                            <img src="images/jan_computer.png" alt="site jan computer" title="JAN Computer games" width="24em" />
-
-                            <h3>JAN</h3>
-                            <ul>
-                                <li>
-                                    <div><em>Réalisation</em> d'un site web sur les jeux vidéos pour un projet d'anglais.</div>
-                                </li>
-                                <li>Outils : HTML, CSS, Bootstrap</li>
-                                <li>Acquis : apprentissage de l'anglais, compétences web</li>
-                            </ul>
-                        </a>
-                    </div>
-                    </div>
         </section>
 
         <hr>
