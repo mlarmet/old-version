@@ -1,45 +1,72 @@
 var scrollLimit = 50;
+var fait = false;
 
-var isMobile = navigator.userAgent.toLowerCase().match(/mobile/i);
+function start() {
 
-var previousW = $(window).width();
+    var isMobile = navigator.userAgent.toLowerCase().match(/mobile/i);
 
-//jQuery(function() {
+    if (window.matchMedia("(max-width: 811px)").matches) {
 
-$(document).ready(function() {
-    if (window.matchMedia("(min-width: 811px)").matches) {
-        if (document.body.scrollTop < scrollLimit ||
-            document.documentElement.scrollTop < scrollLimit) {
-            $(".navbar").slideUp(0);
+        if ($(".navbar").is(":visible") && !fait) {
+            $("#hamburger-button").removeClass("change");
+            $(".navbar").hide(0);
+            fait = true;
         }
+
+        $("#hamburger-button, .nav-link").unbind().click(function() {
+
+            if ($(".navbar").is(":visible")) {
+                $("#hamburger-button").removeClass("change");
+                $(".navbar").fadeOut(300);
+                $("html").css({ "overflow-y": "scroll" });
+            } else if ($(".navbar").is(":hidden")) {
+                $("#hamburger-button").addClass("change");
+                $(".navbar").fadeIn(300);
+                $("html").css({ "overflow-y": "hidden" });
+            }
+
+        });
     } else {
-        $(".navbar").slideUp(0);
-        $("#navigation").fadeOut(0);
-    }
-
-    console.log("je charge la page");
-
-});
-
-$(window).resize(function() {
-    w = $(window).width();
-
-    //actualise effet mail
-    if (previousW < 811 && w > 811 || previousW > 811 && w < 811) {
-        location.reload();
-        previousW = w;
-    }
-    //actualise pour l'effet de souris
-    else if (previousW < 1080 && w > 1080 || previousW > 1080 && w < 1080) {
-        location.reload();
-        previousW = w;
+        checkScroll();
+        $("html").css({ "overflow-y": "scroll" });
+        fait = false;
     }
 
 
-});
+    if (window.matchMedia("(min-width: 1080px)").matches) {
 
-$(window).scroll(function(event) {
-    if (window.matchMedia("(min-width: 811px)").matches) {
+        $("#title h1").css({ "padding": "0 25%" });
+
+        //effet titre souris passe dessus
+        $("#title h1").mouseenter(function() {
+            $("#slide-top").stop(true, false)
+            $("#slide-top").animate({
+                "padding-left": "21.875%"
+            }, 500);
+
+            $("#slide-bottom").stop(true, false);
+            $("#slide-bottom").animate({
+                "padding-right": "21.875%"
+            }, 500);
+        }).mouseleave(function() {
+            $("#title h1").stop(true, false);
+            $("#title h1").animate({
+                "padding": "0 25%"
+            }, 500);
+        });
+    } else {
+        $("#title h1").css({ "padding": "0" });
+        $("#title h1").unbind("mouseenter");
+        $("#title h1").unbind("mouseleave");
+    }
+
+
+
+
+};
+
+function checkScroll() {
+    if (window.matchMedia("(min-width: 812px)").matches) {
         if (document.body.scrollTop > scrollLimit ||
             document.documentElement.scrollTop > scrollLimit) {
             $(".navbar").slideDown();
@@ -47,6 +74,14 @@ $(window).scroll(function(event) {
             $(".navbar").slideUp();
         }
     }
+};
+
+$(window).on("orientationchange resize", function() {
+    start();
+});
+
+$(window).scroll(function() {
+    checkScroll();
 
 });
 
@@ -54,7 +89,6 @@ $(window).on("load", function() {
 
     //scroll up refresh page
     $("html, body").animate({ scrollTop: 0 }, 0);
-    console.log("je charge la fenêtre");
 
     //attend pour que la page soit bien chargé
     setTimeout(function() {
@@ -77,85 +111,12 @@ $(window).on("load", function() {
         //affiche le titre au cas où l"animation aurait ratée
         $("header, #title h1").css({ "filter": "blur(" + 0 + "px)" });
         $("#title h1, #arrow, #hamburger-button").css({ "opacity": 1 });
+        $(".navbar").hide();
+        $(".navbar").css({ "opacity": "1" });
         $("html").css({ "overflow-y": "scroll" });
     }, 2005);
 
-
-    if (window.matchMedia("(max-width: 811px)").matches) {
-
-        $("#hamburger-button, .nav-link").click(function() {
-            $("#hamburger-button").toggleClass("change");
-            if ($(".navbar").is(":visible")) {
-                $(".navbar").slideUp(300);
-            } else if ($(".navbar").is(":hidden")) {
-                $(".navbar").slideDown(300);
-            }
-        });
-    }
-
-    if (!isMobile) {
-
-        if (window.matchMedia("(min-width: 1080px)").matches) {
-            setTimeout(function() {
-                $("#slide-top").css({
-                    "padding-right": "50%"
-                });
-                $("#slide-bottom").css({
-                    "padding-left": "50%"
-                });
-
-                $("#title h1").animate({
-                    "padding": "0 25%"
-                }, 1300);
-            }, 750);
-
-            //attend la fin de l"animation du début 
-            setTimeout(function() {
-                $("#title h1").css({ "padding": "0 25%" });
-
-                //effet titre souris passe dessus
-                $("#title h1").mouseenter(function() {
-                    $("#slide-top").stop(true, false)
-                    $("#slide-top").animate({
-                        "padding-left": "21.875%"
-                    }, 500);
-
-                    $("#slide-bottom").stop(true, false);
-                    $("#slide-bottom").animate({
-                        "padding-right": "21.875%"
-                    }, 500);
-                }).mouseleave(function() {
-                    $("#title h1").stop(true, false);
-                    $("#title h1").animate({
-                        "padding": "0 25%"
-                    }, 500);
-                });
-            }, 2005);
-        }
-        if (window.matchMedia("(min-width: 811px)").matches) {
-            //souris sur le mail (attention le "a" pas le "p")
-            $("#mail a").mouseenter(function() {
-                $("#mail").stop(true, false);
-                $("#mail").animate({
-                    "width": "22.1em"
-                }, 300);
-
-            }).mouseleave(function() {
-                $("#mail").stop(true, false);
-                $("#mail").animate({
-                    "width": "10.25em"
-                }, 300);
-            });
-
-
-        }
-    } else {
-        if ((window.matchMedia("(min-width: 561px)").matches) && (window.matchMedia("(max-width: 767px)").matches)) {
-            $("header").css({
-                "background-position-y": "-22.5em"
-            });
-        }
-    }
+    start();
 });
 
 //});
