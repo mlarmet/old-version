@@ -22,6 +22,11 @@
     --font-body: "Quicksand";
 }
 
+::selection {
+    color: white;
+    background: var(--couleurSecondaire);
+}
+
 html {
     /* overflow-x: hidden;
     overflow-y: hidden; */
@@ -66,6 +71,7 @@ section {
 
 #projets {
     padding: 4em 2em;
+    padding-bottom: 6em;
 }
 
 footer {
@@ -139,14 +145,15 @@ footer a:hover:after {
     background-color: white;
     position: fixed;
     top: 0;
-    height: 3em;
+    height: 3.25em;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
+    opacity: 0;
 }
 
 .nav-item {
-    transition: 0.5s ease;
-    border-radius: 5px;
+    transition: 300ms ease;
     margin: 0.5em;
     padding: 0 0.5em;
 }
@@ -156,7 +163,7 @@ footer a:hover:after {
 }
 
 .nav-item a {
-    transition: 0.5s ease;
+    transition: 300ms ease;
     color: var(--couleurPrincipale);
 }
 
@@ -166,6 +173,8 @@ footer a:hover:after {
 
 #cv {
     color: var(--couleurSecondaire);
+    border: 1px solid var(--couleurSecondaire);
+    padding: 0.4em;
 }
 
 #hamburger-button {
@@ -302,9 +311,6 @@ footer a:hover:after {
     background-color: #3a41e4;
 }
 
-
-/* width =  (carousel.width - carousel-inner) / 2 px  JS */
-
 .carousel-control-prev-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%233a41e4' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
 }
@@ -359,7 +365,8 @@ footer a:hover:after {
     margin: 1em;
     padding: 2em 0;
     transition: 0.5s ease;
-    border: 1px var(--couleurSecondaire) solid;
+    /*border: 1px var(--couleurSecondaire) solid;*/
+    box-shadow: 1px 1px 10px #aaa;
     background-color: white;
     min-height: 32em;
 }
@@ -502,15 +509,17 @@ footer {
     background-color: var(--couleurHeaderFooter);
 }
 
-footer div:not(#mail) {
-    width: 11.5em;
+footer>div {
+    margin-left: 2.5em;
 }
 
 #mail {
-    width: 10.25em;
-    overflow: hidden;
-    white-space: nowrap;
     margin-bottom: 1em;
+}
+
+#mail a {
+    height: 25px;
+    word-break: break-all;
 }
 
 footer img {
@@ -547,58 +556,6 @@ footer hr {
 }
 
 
-/*mobile paysage*/
-
-@media screen and (min-width: 561px) and (max-width: 767px) {
-    #arrow a span {
-        top: 22vh;
-        left: calc(50% - 15px);
-        width: 30px;
-        height: 30px;
-        border: 2px solid var(--couleurPrincipale);
-    }
-    #arrow a span::after {
-        width: 10.5px;
-        height: 10.5px;
-        margin: 6px 0 0 7px;
-        border-bottom: 2px solid var(--couleurPrincipale);
-        border-left: 2px solid var(--couleurPrincipale);
-    }
-    #title {
-        top: 20vh;
-    }
-    #slide-top {
-        font-size: 2.5em;
-    }
-    #slide-bottom {
-        font-size: 1.25em;
-    }
-    header {
-        background-position-y: -12.5em;
-    }
-    .navbar {
-        width: 40%;
-        justify-content: space-around;
-        padding-top: 5%;
-    }
-    .navbar-nav {
-        height: 70%;
-        flex-flow: row wrap;
-        align-content: center;
-    }
-    #profil-img {
-        float: left;
-        width: 175px;
-        height: 175px;
-        margin-right: 0;
-    }
-    #profil-img img {
-        padding-right: 7em;
-        transform: scale(1.1);
-    }
-}
-
-
 /*réduction du menu + affichage email en entier*/
 
 
@@ -608,54 +565,30 @@ footer hr {
     #slide-top {
         font-size: 3em;
     }
-    footer div:not(#mail) {
-        display: flex;
-        flex-flow: row wrap;
-        align-content: center;
-        justify-content: center;
-        margin-bottom: 1em;
-        width: 100%;
-    }
-    footer div p,
-    #mail {
-        margin: 0.5em 1em;
-    }
-    #mail {
-        display: flex;
-        flex-wrap: nowrap;
-        width: auto;
-        align-items: center;
-        white-space: normal;
-    }
-    #mail img {
-        min-width: 32px;
-        min-height: 32px;
-        flex-shrink: 0;
-    }
     .navbar {
         position: fixed;
         top: 0;
         height: 100%;
-        width: 40%;
+        width: 100%;
         flex-flow: column nowrap;
         justify-content: flex-start;
-        align-items: flex-start;
-        padding: 0;
-        padding-top: 12.5%;
+        align-items: center;
+        padding-top: 5em;
+        text-transform: uppercase;
     }
     .navbar-nav {
         display: flex;
         flex-flow: column nowrap;
-        padding-left: 1em;
-        width: 100%;
+        align-items: center;
     }
     .nav-item {
-        width: min-content;
+        text-align: center;
+        width: 100%;
+        border-bottom: 1px solid var(--couleurPrincipale);
     }
     /*cv link*/
     .navbar>a {
-        padding-left: 1.5em;
-        margin: 0.5em;
+        margin-top: 5em;
     }
     .nav-item {
         padding-left: 0.5em;
@@ -666,9 +599,8 @@ footer hr {
     #hamburger-button {
         position: fixed;
         display: block;
-        /*top: 5px;
-        left: 10px;*/
-        padding: 0.25em 0.66em 0.33em 0.5em;
+        top: 5px;
+        right: 10px;
         border-right: 0px solid var(--couleurPrincipale);
         border-bottom: 0px solid var(--couleurPrincipale);
         border-bottom-right-radius: 50%;
@@ -683,7 +615,6 @@ footer hr {
         width: 35px;
         height: 5px;
         background-color: var(--couleurPrincipale);
-        border-radius: 20px;
         margin: 6px 0;
         transition: 300ms;
     }
@@ -694,7 +625,7 @@ footer hr {
         opacity: 0;
     }
     .change .bar3 {
-        transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-9px, -7px);
     }
     .projets-container {
         width: 100%;
@@ -734,17 +665,82 @@ footer hr {
 /*-------------------------------------------------------------*/
 
 
+/*mobile paysage*/
+
+@media screen and (orientation: landscape) and (min-width: 561px) and (max-width: 767px) {
+    #arrow a span {
+        top: 22vh;
+        left: calc(50% - 15px);
+        width: 30px;
+        height: 30px;
+        border: 2px solid var(--couleurPrincipale);
+    }
+    #arrow a span::after {
+        width: 10.5px;
+        height: 10.5px;
+        margin: 6px 0 0 7px;
+        border-bottom: 2px solid var(--couleurPrincipale);
+        border-left: 2px solid var(--couleurPrincipale);
+    }
+    #title {
+        top: 20vh;
+    }
+    #slide-top {
+        font-size: 2.5em;
+    }
+    #slide-bottom {
+        font-size: 1.25em;
+    }
+    header {
+        background-position-y: -22.5em;
+    }
+    #profil-img {
+        float: left;
+        width: 175px;
+        height: 175px;
+        margin-right: 0;
+    }
+    #profil-img img {
+        padding-right: 7em;
+        transform: scale(1.1);
+    }
+    .navbar {
+        padding-top: 0;
+        justify-content: center;
+    }
+    .navbar-nav {
+        flex-flow: column nowrap;
+    }
+    .nav-item {
+        margin: 0.25em;
+    }
+    #cv {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        margin-top: 0;
+    }
+}
+
+
 /*mobile portrait*/
 
 @media screen and (max-width: 560px) {
     section {
         padding: 3em 0;
     }
+    #projets {
+        padding: 3em 0;
+        padding-bottom: 5em;
+    }
+    #competences {
+        padding-bottom: 3em;
+    }
+    #profil {
+        padding: 2em 0;
+    }
     header {
         background-position-y: -10em;
-    }
-    .navbar {
-        width: 55%;
     }
     #arrow a span {
         left: calc(50% - 15px);
@@ -772,9 +768,7 @@ footer hr {
         float: left;
         width: 140px;
         height: 140px;
-        margin: 1em;
-        margin-top: 0;
-        margin-right: 1.5em;
+        margin: 0 1.5em 1em 1em;
     }
     #profil-img img {
         padding-right: 9em;
@@ -782,9 +776,6 @@ footer hr {
     }
     #profil-text {
         font-size: 0.75em;
-    }
-    #projets {
-        padding: 4em 0;
     }
     .carousel-inner,
     .carousel-item img {
@@ -796,7 +787,7 @@ footer hr {
     }
     #formation,
     #exp-pro {
-        margin: 1em;
+        margin: 0 1em;
     }
     #competences-un,
     #competences-deux,
