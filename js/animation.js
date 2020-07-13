@@ -3,8 +3,6 @@ var fait = false;
 
 function start() {
 
-    var isMobile = navigator.userAgent.toLowerCase().match(/mobile/i);
-
     if (window.matchMedia("(max-width: 811px)").matches) {
 
         if ($(".navbar").is(":visible") && !fait) {
@@ -35,7 +33,9 @@ function start() {
 
     if (window.matchMedia("(min-width: 1080px)").matches) {
 
-        $("#title h1").css({ "padding": "0 25%" });
+        $("#title h1").css({
+            "padding": "0 25%"
+        });
 
         //effet titre souris passe dessus
         $("#title h1").mouseenter(function() {
@@ -60,9 +60,6 @@ function start() {
         $("#title h1").unbind("mouseleave");
     }
 
-
-
-
 };
 
 function checkScroll() {
@@ -75,15 +72,6 @@ function checkScroll() {
         }
     }
 };
-
-$(window).on("orientationchange resize", function() {
-    start();
-});
-
-$(window).scroll(function() {
-    checkScroll();
-
-});
 
 $(window).on("load", function() {
 
@@ -105,6 +93,19 @@ $(window).on("load", function() {
             }
         });
 
+        if (window.matchMedia("(min-width: 1080px)").matches) {
+
+            $("#slide-top").css({
+                "padding-right": "50%"
+            });
+            $("#slide-bottom").css({
+                "padding-left": "50%"
+            });
+
+            $("#title h1").animate({
+                "padding": "0 25%"
+            }, 1300);
+        }
     }, 750);
 
     setTimeout(function() {
@@ -116,8 +117,14 @@ $(window).on("load", function() {
         $("html").css({ "overflow-y": "scroll" });
 
         start();
+
+        $(window).on("orientationchange resize", function() {
+            start();
+        });
+
+        $(window).scroll(function() {
+            checkScroll();
+        });
+
     }, 2005);
-
 });
-
-//});
