@@ -114,9 +114,10 @@ $(window).on("load", function() {
         $(".navbar").hide();
         $(".navbar").css({ "opacity": "1" });
         $("html").css({ "overflow-y": "scroll" });
+
+        start();
     }, 2005);
 
-    start();
 });
 
 //});

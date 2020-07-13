@@ -155,19 +155,16 @@ footer a:hover:after {
 .nav-item {
     transition: 300ms ease;
     margin: 0.5em;
-    padding: 0 0.5em;
 }
 
-.nav-item:hover {
-    background-color: var(--couleurSecondaire);
-}
-
-.nav-item a {
+.nav-link {
+    padding: 0.5em!important;
     transition: 300ms ease;
     color: var(--couleurPrincipale);
 }
 
-.nav-item a:hover {
+.nav-link:hover {
+    background-color: var(--couleurSecondaire);
     color: white;
 }
 
@@ -586,15 +583,11 @@ footer hr {
         width: 100%;
         border-bottom: 1px solid var(--couleurPrincipale);
     }
-    /*cv link*/
-    .navbar>a {
-        margin-top: 5em;
+    .nav-link {
+        padding: 0.5em 0!important;
     }
-    .nav-item {
-        padding-left: 0.5em;
-        padding-right: 0.5em;
-        overflow: hidden;
-        white-space: nowrap;
+    #cv {
+        margin-top: 5em;
     }
     #hamburger-button {
         position: fixed;
