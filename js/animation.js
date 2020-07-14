@@ -115,6 +115,7 @@ $(window).on("load", function() {
         $(".navbar").hide();
         $(".navbar").css({ "opacity": "1" });
         $("html").css({ "overflow-y": "scroll" });
+        $("#arrow a span").css({ "animation": "arrow_move 1s infinite" });
 
         start();
 
@@ -126,5 +127,5 @@ $(window).on("load", function() {
             checkScroll();
         });
 
-    }, 2005);
+    }, 2050);
 });
