@@ -79,34 +79,34 @@ $(window).on("load", function() {
     $("html, body").animate({ scrollTop: 0 }, 0);
 
     //attend pour que la page soit bien chargé
-    setTimeout(function() {
-        $({ value: 30 }).animate({ value: 0 }, {
-            duration: 750,
-            step: function() {
-                $("header").css({
-                    "filter": "blur(" + this.value + "px)",
-                    "-moz-filter": "blur(" + this.value + "px)"
-                });
-                $("#title h1, #arrow, #hamburger-button").css({
-                    "opacity": (30 - this.value) / 30
-                });
-            }
+    //setTimeout(function() {
+    $({ value: 30 }).animate({ value: 0 }, {
+        duration: 750,
+        step: function() {
+            $("header").css({
+                "filter": "blur(" + this.value + "px)",
+                "-moz-filter": "blur(" + this.value + "px)"
+            });
+            $("#title h1, #arrow, #hamburger-button").css({
+                "opacity": (30 - this.value) / 30
+            });
+        }
+    });
+
+    if (window.matchMedia("(min-width: 1080px)").matches) {
+
+        $("#slide-top").css({
+            "padding-right": "50%"
+        });
+        $("#slide-bottom").css({
+            "padding-left": "50%"
         });
 
-        if (window.matchMedia("(min-width: 1080px)").matches) {
-
-            $("#slide-top").css({
-                "padding-right": "50%"
-            });
-            $("#slide-bottom").css({
-                "padding-left": "50%"
-            });
-
-            $("#title h1").animate({
-                "padding": "0 25%"
-            }, 1300);
-        }
-    }, 750);
+        $("#title h1").animate({
+            "padding": "0 25%"
+        }, 1300);
+    }
+    //}, 750);
 
     setTimeout(function() {
         //affiche le titre au cas où l"animation aurait ratée
@@ -127,5 +127,5 @@ $(window).on("load", function() {
             checkScroll();
         });
 
-    }, 2050);
+    }, 1300);
 });
