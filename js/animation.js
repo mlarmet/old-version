@@ -12,7 +12,7 @@ function start() {
         }
 
         $("#hamburger-button, .nav-link").unbind().click(function() {
-
+            fait = true;
             if ($(".navbar").is(":visible")) {
                 $("#hamburger-button").removeClass("change");
                 $(".navbar").fadeOut(300);
@@ -25,6 +25,7 @@ function start() {
 
         });
     } else {
+        $("#hamburger-button, .nav-link").unbind();
         checkScroll();
         $("html").css({ "overflow-y": "scroll" });
         fait = false;
