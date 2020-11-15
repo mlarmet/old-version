@@ -1,16 +1,16 @@
 @font-face {
     font-family: "maxwell-regular";
-    src: url('../fonts/MAXWELL_REGULAR.ttf') format('truetype');
+    src: url('../fonts/MAXWELLREGULAR.woff2') format('truetype');
 }
 
 @font-face {
     font-family: "Quicksand";
-    src: url('../fonts/Quicksand-VariableFont_wght.ttf') format('truetype');
+    src: url('../fonts/Quicksand-VariableFontwght.woff2') format('truetype');
 }
 
 @font-face {
     font-family: "Noir-medium";
-    src: url('../fonts/Noir_medium.otf') format('truetype');
+    src: url('../fonts/Noirmedium.woff2') format('truetype');
 }
 
 :root {
