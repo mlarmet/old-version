@@ -1,6 +1,6 @@
 @font-face {
     font-family: "maxwell-regular";
-    src: url('../fonts/MAXWELLREGULAR.woff2') format('truetype');
+    src: url('../fonts/MAXWELL_REGULAR.ttf') format('truetype');
 }
 
 @font-face {
@@ -10,7 +10,7 @@
 
 @font-face {
     font-family: "Noir-medium";
-    src: url('../fonts/Noirmedium.woff2') format('truetype');
+    src: url('../fonts/Noir_medium.otf') format('truetype');
 }
 
 :root {
